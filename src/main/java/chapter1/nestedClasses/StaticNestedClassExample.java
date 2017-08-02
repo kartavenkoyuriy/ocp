@@ -1,4 +1,4 @@
-package main.java.chapter1.nestedClasses;
+package chapter1.nestedClasses;
 
 import java.io.Serializable;
 

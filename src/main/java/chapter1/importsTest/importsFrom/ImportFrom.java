@@ -1,4 +1,4 @@
-package main.java.chapter1.importsTest.importsFrom;
+package chapter1.importsTest.importsFrom;
 
 /**
  * Created by Yuriy Kartavenko on 7/6/2017.

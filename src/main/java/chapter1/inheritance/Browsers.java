@@ -1,4 +1,4 @@
-package main.java.chapter1.inheritance;
+package chapter1.inheritance;
 
 /**
  * Created by Yuriy Kartavenko on 7/7/2017.

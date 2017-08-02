@@ -1,4 +1,4 @@
-package main.java.chapter1.nestedClasses;
+package chapter1.nestedClasses;
 
 /**
  * Created by Yuriy Kartavenko on 6/27/2017.

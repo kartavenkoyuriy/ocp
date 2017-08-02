@@ -1,4 +1,4 @@
-package main.java.chapter1;
+package chapter1;
 
 /**
  * Created by Yuriy Kartavenko on 4/14/2017.
