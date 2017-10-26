@@ -1,6 +1,7 @@
 package chapter1.nestedClasses;
 
 import java.io.Serializable;
+import java.text.MessageFormat;
 
 /**
  * Created by Yuriy Kartavenko on 6/27/2017.
