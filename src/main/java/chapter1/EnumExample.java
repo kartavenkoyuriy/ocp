@@ -19,7 +19,7 @@ enum EnumComplexExample{
         System.out.println("only once");
     }
 
-    //static modifier is implied
+    //staticBlock modifier is implied
     public void simplePrint(){
         System.out.println("here come the " + this.numberName);
     }
