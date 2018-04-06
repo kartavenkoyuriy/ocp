@@ -1,4 +1,4 @@
-package chapter2.design;
+package chapter2.objectDesign;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -6,15 +6,14 @@ import java.util.HashMap;
 import java.util.Map;
 
 //imagine that we are designing a new Animal class, and we have the following
-//        design requirements:
-//        ■ Each animal has a non‐null, non‐empty species field
-//        ■ Each animal has an age field that is greater than or equal to zero
+//objectDesign requirements:
+//■ Each animal has a non‐null, non‐empty species field
+//■ Each animal has an age field that is greater than or equal to zero
 public class Animal {
     private String species;
     private int age;
 
-    public Animal(String species, int age) {
-        setAge(age);
+    public Animal(String species) {
         setSpecies(species);
     }
 

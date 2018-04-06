@@ -4,11 +4,11 @@ package chapter2.functionalInterfaces;
  * Created by Yuriy Kartavenko on 7/18/2017.
  */
 
-class Mammal{
-
+class Mammal {
+    public void testMammal() {}
 }
 
-public class Animal extends Mammal{
+public class Animal extends Mammal {
     private String species;
     private boolean canHop;
     private boolean canSwim;
@@ -17,6 +17,11 @@ public class Animal extends Mammal{
         this.species = species;
         this.canHop = canHop;
         this.canSwim = canSwim;
+    }
+
+    @Override
+    public void testMammal() {
+        super.testMammal();
     }
 
     public String getSpecies() {
@@ -41,7 +46,7 @@ public class Animal extends Mammal{
     }
 }
 
-class Dino extends Animal{
+class Dino extends Animal {
     public Dino(String species, boolean canHop, boolean canSwim) {
         super(species, canHop, canSwim);
     }

@@ -17,10 +17,10 @@ public class MemberInnerClassExample {
     //+can extend any class or interface
     //+can be abstract or final
     //+Can access members of the outer class including private members
-    //+can NOT declare static field or methods
+    //+can NOT declare staticBlock field or methods
     protected final class Inner implements Serializable {
-        //can NOT declare static field or methods
-//        static String a;
+        //can NOT declare staticBlock field or methods
+//        staticBlock String a;
 
         private int iterate = 3;
 
