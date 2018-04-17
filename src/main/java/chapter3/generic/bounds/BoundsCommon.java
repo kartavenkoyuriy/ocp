@@ -4,18 +4,33 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
+class A {
+}
+
+class B extends A {
+}
+
+class C extends B {
+}
+
 public class BoundsCommon {
     public static void main(String[] args) {
+        List<? super A> list1 = new ArrayList<A>();
+        list1.add(new A());
+        list1.add(new B());
 
+        List<? extends A> list2 = new ArrayList<B>();
+//        upper-bounded list is immutable
+//        list2.add(new B());
+//        list2.add(new A());
+//        list2.add(new C());
 
-        List<String> strings = new ArrayList<>();
-        strings.add("1");
-        strings.add("2");
-        strings.add("3");
+    }
 
+    private static void castingArrays() {
 //        compile error, because String can be implicitly cast to Object
 //        Object stringToObject = "1";
-//        but List<String> can be cast(implicitly or explicitly) to List<Object> because of
+//        but List<String> can't be cast(implicitly or explicitly) to List<Object> because of
 //        List<Integer> numbers = new ArrayList<>();
 //        numbers.add(42);
 //        List<Object> objects = numbers;
@@ -28,16 +43,16 @@ public class BoundsCommon {
 //
 //        so will be compile error
 //        printList(strings);
-        printListWhatever(strings);
     }
 
-    public static void printListObject(List<Object> objectsToPrint){
+
+    public static void printListObject(List<Object> objectsToPrint) {
         for (Object o : objectsToPrint) {
             System.out.println(o);
         }
     }
 
-    public static void printListWhatever(List<?> objectsToPrint){
+    public static void printListWhatever(List<?> objectsToPrint) {
         for (Object o : objectsToPrint) {
             System.out.println(o);
         }

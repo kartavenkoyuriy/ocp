@@ -1,5 +1,7 @@
 package chapter3.generic.bounds;
 
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -17,7 +19,7 @@ public class LowerBoundedWildcards {
 //        list.add("quack");
 //    }
 
-//    No (unbounded generics are immutable). Don't know what type of list
+//    No (upper-bounded generics are immutable). Don't know what type of list
 //    public static void addSound(List<? extends Object> list){
 //        list.add("quack");
 //    }
@@ -27,8 +29,17 @@ public class LowerBoundedWildcards {
 //        list.add("quack");
 //    }
 
-    public static void addSound(List<? super String> list) {
+    private static void addSound(List<? super String> list) {
         list.add("quack");
+    }
+
+    private void genericSupertypesWithChild(){
+        List<? super IOException> exceptions = new ArrayList<Exception>();
+//        does not compile, because we could have list of IOE
+//        exceptions.add(new Exception());
+        exceptions.add(new IOException());
+//        we can add a child because FNFE is a IOE
+        exceptions.add(new FileNotFoundException());
     }
 
 }
