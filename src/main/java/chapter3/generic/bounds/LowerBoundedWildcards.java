@@ -7,6 +7,15 @@ import java.util.List;
 
 public class LowerBoundedWildcards {
     public static void main(String[] args) {
+        List<? super IOException> exceptionList = new ArrayList<Exception>();
+//        can't add because it might be list of IOE
+//        exceptionList.add(new Exception());
+        exceptionList.add(new IOException());
+//        nonetheless FNFE is an successor of IOE, it will compile, because "FNFE is a IOE"
+        exceptionList.add(new FileNotFoundException());
+    }
+
+    private static void callAddSoundMethod() {
         List<String> strings = new ArrayList<>();
         strings.add("tweet");
         List<Object> objects = new ArrayList<>(strings);
