@@ -1,12 +1,31 @@
 package chapter3.collections.queue;
 
 import java.util.ArrayDeque;
+import java.util.Deque;
 import java.util.Queue;
 import java.util.Stack;
 
 public class QueueExample {
     public static void main(String[] args) {
 
+nullPassingStackVsQueue();
+    }
+
+    private static void nullPassingStackVsQueue() {
+//        NPE
+//        Deque<String> stringDeque = new ArrayDeque<>();
+//        stringDeque.add(null);
+
+        Stack<String> strings = new Stack<>();
+        strings.add(null);
+        strings.add(null);
+        System.out.println(strings.capacity());
+        System.out.println(strings.size());
+        strings.add(null);
+        System.out.println("---");
+        System.out.println(strings.size());
+        System.out.println(strings.peek());
+        System.out.println(strings.size());
     }
 
     private static void stackMethods() {
@@ -20,6 +39,7 @@ public class QueueExample {
         System.out.println(stringStack);
         System.out.println(stringStack.peek());
         System.out.println(stringStack);
+
 
 
     }
