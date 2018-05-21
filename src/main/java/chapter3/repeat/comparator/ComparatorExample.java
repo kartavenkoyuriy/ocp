@@ -1,11 +1,9 @@
-package chapter3.compare.repeat.comparator;
+package chapter3.repeat.comparator;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
-
-import static java.util.Comparator.comparingInt;
 
 class Duck implements Comparable<Duck> {
 
