@@ -30,6 +30,8 @@ class Outer{
         }
         Inner inner = new Inner();
         inner.multiply();
+
+//        return new multip;
     }
 
     public void newInner(){
