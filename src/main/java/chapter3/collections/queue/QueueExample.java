@@ -6,9 +6,10 @@ import java.util.Queue;
 import java.util.Stack;
 
 public class QueueExample {
+
     public static void main(String[] args) {
 
-nullPassingStackVsQueue();
+        nullPassingStackVsQueue();
     }
 
     private static void nullPassingStackVsQueue() {
@@ -41,7 +42,6 @@ nullPassingStackVsQueue();
         System.out.println(stringStack);
 
 
-
     }
 
 
@@ -57,7 +57,6 @@ nullPassingStackVsQueue();
 //        stringQueue.add(null);
 //        stringQueue.offer(null);
 
-
 //        remove - return and remove next(first-to-out) element, returns elem or throw exception
 //        poll - return and remove next(first-to-out) element, returns elem or null
         System.out.println(stringQueue.poll());
@@ -70,7 +69,6 @@ nullPassingStackVsQueue();
 //        if no elements will throw NoSuchElementException
 //        System.out.println(stringQueue.remove());
         System.out.println(stringQueue);
-
 
         stringQueue.add("first in");
         stringQueue.offer("second in");

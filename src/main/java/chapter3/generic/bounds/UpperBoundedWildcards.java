@@ -7,14 +7,29 @@ interface Flyer{}
 class HangGlider implements Flyer{}
 class Goose implements Flyer{}
 
+class Bird {}
+class Sparrow extends Bird {}
+
 public class UpperBoundedWildcards {
     public static void main(String[] args) {
 
-            List<Goose> gooses = new ArrayList<>();
+    }
+
+    private static void immutableLists() {
+        //because the real list might be an successor of Sparrow
+        //wildcard and upper-bounded lists are immutable(no ADD but technically can be removed)
+        List<? extends Bird> birds = new ArrayList<>();
+//        birds.add(new Sparrow());
+//        birds.add(new Bird());
+//        birds.add(new Object());
+        birds.remove(1);
+    }
+
+    private static void passListToFlyerInterface() {
+        List<Goose> gooses = new ArrayList<>();
 //            can pass only to generic upperbounded method
 //            anyFlyer(gooses);
-            groupsOfFlyers(gooses);
-
+        groupsOfFlyers(gooses);
     }
 
     private static void anyFlyer(List<Flyer> flyiers){
