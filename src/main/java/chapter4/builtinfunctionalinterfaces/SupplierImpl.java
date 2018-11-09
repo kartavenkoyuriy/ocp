@@ -10,7 +10,7 @@ import java.util.function.Supplier;
 public class SupplierImpl {
 
     public static void main(String[] args) {
-
+        supplierTest();
     }
 
     private static void supplierTest() {
@@ -27,19 +27,22 @@ public class SupplierImpl {
 
 //        this method reference looks to constructor StringBuilder(){} because of Supplier type of interface
         Supplier<StringBuilder> stringBuilderSupplier = StringBuilder::new;
-//        this won't work, because Supplier doesn't provide any parameters(?)
+        System.out.println(stringBuilderSupplier.get().getClass());
+        System.out.println(stringBuilderSupplier.get().getClass());
+//        this won't work, because Supplier doesn't receive any parameters
 //        Supplier<StringBuilder> stringBuilderSupplier01 = StringBuilder::new("asd");
 
 //        this method reference looks to constructor StringBuilder(CharSequence seq){} because of Consumer type of interface
 //        but why it consume new StringBuilder???
         Consumer<StringBuilder> stringBuilderConsumer = StringBuilder::new;
+        Consumer<StringBuilder> stringBuilderConsumerUpd = s -> {
+            s = new StringBuilder();
+            s.append("here we can do whatever we want with consumed object");
+        };
 
         Supplier<StringBuilder> stringBuilderSupplier1 = () -> new StringBuilder();
 //        the next will work
         Supplier<StringBuilder> stringBuilderSupplier11 = () -> new StringBuilder("qwe");
-
-        System.out.println(stringBuilderSupplier.get());
-        System.out.println(stringBuilderSupplier1.get());
 
         System.out.println("---");
 
@@ -50,7 +53,7 @@ public class SupplierImpl {
         System.out.println(arrayListSupplier1.get());
     }
 
-    private static void methodReferenceUnderstanding() {
+    private void methodReferenceUnderstanding() {
         String s = "abc";
         Predicate<String> stringPredicate = s::startsWith;
         Predicate<String> stringPredicate1 = (input) -> s.startsWith(input);
@@ -58,8 +61,8 @@ public class SupplierImpl {
         System.out.println(stringPredicate1.test("a"));
 
 //        won't work because need a parameter???
-//        Predicate<String> stringPredicate1 = String::startsWith;
+//        Predicate<String> stringPredicate2 = String::startsWith;
 //        work because doesn't need a parameter???
-//        Predicate<String> stringPredicate2 = String::isEmpty;
+//        Predicate<String> stringPredicate3 = String::isEmpty;
     }
 }

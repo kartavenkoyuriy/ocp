@@ -1,18 +1,22 @@
 package chapter4.builtinfunctionalinterfaces;
 
+import java.util.Arrays;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.function.BiConsumer;
 import java.util.function.Consumer;
 
 public class ConsumerImpl {
     public static void main(String[] args) {
-
+        consumerExample();
     }
 
     private static void biConsumerExample() {
         //        we can't process 'println' method because BiConsumer consumes 2 parameters, but println consumes only 1
 //        BiConsumer<String, Integer> stringIntegerBiConsumer = System.out::println;
+        BiConsumer<String, Integer> stringIntegerBiConsumer = (s, i) -> System.out.println(s + i);
+
         Map<String, Integer> stringIntegerMap = new HashMap<>();
 //        compile error, because BiConsumer needs to know to which map we should pass the parameters
 //        BiConsumer<String, Integer> stringIntegerBiConsumer2 = Map::put;
@@ -51,8 +55,12 @@ public class ConsumerImpl {
         stringConsumer02.accept("ololo");
 
 
-        Consumer<String> stringConsumer1 = System.out::print;
+        Consumer<String> stringConsumer1 = System.out::println;
         stringConsumer1.accept("zxc");
         stringConsumer1.accept("cvb");
+
+        List<String> list = Arrays.asList("qwe", "asd", "zxc");
+        list.forEach(s -> s = s.concat("10"));//will not update because use reference copy
+        System.out.println(list);
     }
 }
