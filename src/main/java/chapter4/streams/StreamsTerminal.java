@@ -3,6 +3,7 @@ package chapter4.streams;
 import java.util.*;
 import java.util.function.BinaryOperator;
 import java.util.function.Predicate;
+import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 public class StreamsTerminal {
@@ -22,8 +23,35 @@ public class StreamsTerminal {
 
         //describing of
         //<R> R collect(Supplier<R> supplier, BiConsumer<R, ? super T> accumulator, BiConsumer<R, R> combiner);
+        //combiner - it is responsible for taking two data collections and merging them.
+        //This is useful when we are processing in parallel
+        //in StringBuilder it suitable only when we ===!!!=== don't care about letters order ===!!!===
         Stream<String> wolfStream = Stream.of("w", "o", "l", "f");
-//        wolfStream.collect()
+        StringBuilder collect = wolfStream.collect(StringBuilder::new, StringBuilder::append, StringBuilder::append);
+        System.out.println("StringBuilder:" + collect.toString());
+
+        Stream<String> wolfStreamForTree = Stream.of("w", "o", "l", "f");
+//        TreeSet<Object> objectTreeSet = wolfStreamForTree.collect(TreeSet::new, TreeSet::add, TreeSet::add);
+
+        //The combiner adds all
+        //of the elements of one TreeSet to another in case the operations were done in parallel and
+        //need to be merged.
+        TreeSet<Object> objectTreeSet = wolfStreamForTree.collect(TreeSet::new, TreeSet::add, TreeSet::addAll);
+        System.out.println("objectTreeSet:" + objectTreeSet);
+
+        //-----------------------------------------------------------------------------------------------------------------
+        //describing of
+        //<R, A> R collect(Collector<? super T, A, R> collector);
+        //predefined collectors
+
+        Stream<String> wolfStreamForSimpleCollector = Stream.of("w", "o", "l", "f");
+        TreeSet<String> treeSetSimpleCollector = wolfStreamForSimpleCollector.collect(Collectors.toCollection(TreeSet::new));
+        System.out.println("treeSetSimpleCollector:" + treeSetSimpleCollector);
+
+        Stream<String> wolfStreamForSimpleCollector1 = Stream.of("w", "o", "l", "f");
+        Set<String> toSetSimpleCollector1 = wolfStreamForSimpleCollector1.collect(Collectors.toSet());
+        System.out.println("toSetSimpleCollector1:" + toSetSimpleCollector1);
+
 
     }
 
