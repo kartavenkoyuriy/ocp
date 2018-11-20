@@ -7,12 +7,12 @@ public class Crate<T> {
 
     private T content;
 
-//    wrong
+//    wrong, because generic type should be related to exact object
 //    private static T content;
 
 
     public static void main(String[] args) {
-
+        crateListWithDifferentGenericTypes();
     }
 
     private static void staticSyntax() {
@@ -72,6 +72,14 @@ public class Crate<T> {
 
     public <M> M returnContent(M m){
         return m;
+    }
+
+    //should be placed ALL generic for return type(even VOID) that are method parameters AND NEW(not class's generic)
+    public <U, V> void voidContent (U u, V v){
+    }
+    //OR
+    //with defined class generic type
+    public void voidContent (T t){
     }
 
     public static <M> M returnContentStatic(M m){

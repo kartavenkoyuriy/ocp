@@ -17,7 +17,7 @@ interface CanRun {
 interface CanSprint extends CanWalk, CanRun {
     void sprint();
 
-    //class AND interface should overridede default method
+    //class AND interface should overridede default method+
     @Override
     default void walk() {
 
