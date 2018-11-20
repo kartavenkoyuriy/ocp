@@ -61,15 +61,16 @@ enum AbstractEnumExample{
 
 class TestEnums{
     public static void main(String[] args) {
-        //The first time that we ask for any of the enum values, Java constructs all of the enum values
-        EnumComplexExample complexEnum10 = EnumComplexExample.ELEVEN;
-        EnumComplexExample complexEnum11 = EnumComplexExample.ELEVEN;
-        EnumComplexExample complexEnum20 = EnumComplexExample.TWELVE;
-//        complexEnum = new EnumComplexExample()
-        EnumComplexExample.TWELVE.simplePrint();
+//        //The first time that we ask for any of the enum values, Java constructs all of the enum values
+//        EnumComplexExample complexEnum10 = EnumComplexExample.ELEVEN;
+//        EnumComplexExample complexEnum11 = EnumComplexExample.ELEVEN;
+//        EnumComplexExample complexEnum20 = EnumComplexExample.TWELVE;
+////        complexEnum = new EnumComplexExample()
+//        EnumComplexExample.TWELVE.simplePrint();
+//
+//        AbstractEnumExample.WINTER.getSeasonTemp();
+//        AbstractEnumExample.SPRING.getDefaultSeasonDescription();
+//        AbstractEnumExample.FALL.getDefaultSeasonDescription();
 
-        AbstractEnumExample.WINTER.getSeasonTemp();
-        AbstractEnumExample.SPRING.getDefaultSeasonDescription();
-        AbstractEnumExample.FALL.getDefaultSeasonDescription();
     }
 }
