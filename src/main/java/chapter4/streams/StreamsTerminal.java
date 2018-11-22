@@ -3,6 +3,7 @@ package chapter4.streams;
 import java.util.*;
 import java.util.function.BinaryOperator;
 import java.util.function.Predicate;
+import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 public class StreamsTerminal {
@@ -17,14 +18,48 @@ public class StreamsTerminal {
 
 //        Stream<String> monkeyStream = Stream.of("monkey", "gorilla", "bonobo", "ape", "2");
 
+    }
 
+    private static void collectCollectExample() {
         //MUTABLE reduction - more efficient because we use same object while accumulating
+
+        //---------------------------------------------------------------------------------------------------
 
         //describing of
         //<R> R collect(Supplier<R> supplier, BiConsumer<R, ? super T> accumulator, BiConsumer<R, R> combiner);
-        Stream<String> wolfStream = Stream.of("w", "o", "l", "f");
-//        wolfStream.collect()
+        //This is a really useful method, because it lets us get data out of streams and into another form.
 
+        //first argument - supplier, in which we will collect data
+        //second argument - biconsumer, which will append/add the data to the supplier
+        //third argument - biconsumer, for parallel. merging two(???) "data collection" into supplier
+
+        //for SB its OK only if we don't care about letter order
+        Stream<String> wolfStream = Stream.of("w", "o", "l", "f");
+        StringBuilder stringBuilder = wolfStream.collect(StringBuilder::new, StringBuilder::append, StringBuilder::append);
+        System.out.println(stringBuilder.toString());
+
+        Stream<String> wolfStream1 = Stream.of("w", "o", "l", "f");
+        //sorted
+        TreeSet<Object> treeSet = wolfStream1.collect(TreeSet::new, TreeSet::add, TreeSet::addAll);
+        System.out.println(treeSet);
+
+        //---------------------------------------------------------------------------------------------------
+
+        //describing of
+        //<R,A> R collect(Collector<? super T, A,R> collector)
+        //provide a collector, which will do all the work into mention data structure
+
+        Stream<String> wolfStream2 = Stream.of("w", "o", "l", "f");
+        //no sort
+        Set<String> stringSet = wolfStream2.collect(Collectors.toSet());
+        System.out.println(stringSet);
+
+        Stream<String> wolfStream3 = Stream.of("w", "o", "l", "f");
+        //sorted
+        TreeSet<String> stringTreeSet = wolfStream3.collect(Collectors.toCollection(TreeSet::new));
+        System.out.println(stringTreeSet);
+
+        //---------------------------------------------------------------------------------------------------
     }
 
     //doesn't work with infinite streams
