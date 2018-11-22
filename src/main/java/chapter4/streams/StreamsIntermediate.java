@@ -2,7 +2,6 @@ package chapter4.streams;
 
 import static java.util.Arrays.asList;
 
-import java.io.Serializable;
 import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -24,6 +23,7 @@ public class StreamsIntermediate {
         List<String> bearStringList = stringStream
                 .filter(x -> x.startsWith("b"))
                 .peek(x -> System.out.println(x.length()))
+//                .sorted()
                 .peek(System.out::println)
                 .collect(Collectors.toList());
         System.out.println(bearStringList);
@@ -45,6 +45,7 @@ public class StreamsIntermediate {
         //Stream<T> sorted()
         //Stream<T> sorted(Comparator<? super T> comparator)
         //sort a finite stream
+        //don't pass ahead until get All data to sort
 
         Stream<String> stringStream = Stream.of("a", "A", "1");
         stringStream.sorted().forEach(System.out::print);

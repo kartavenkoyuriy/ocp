@@ -17,7 +17,7 @@ public class StreamsTerminal {
     public static void main(String[] args) {
 
 //        Stream<String> monkeyStream = Stream.of("monkey", "gorilla", "bonobo", "ape", "2");
-
+        countExample();
     }
 
     private static void collectCollectExample() {
