@@ -17,42 +17,49 @@ public class StreamsTerminal {
     public static void main(String[] args) {
 
 //        Stream<String> monkeyStream = Stream.of("monkey", "gorilla", "bonobo", "ape", "2");
+        countExample();
+    }
 
-
+    private static void collectCollectExample() {
         //MUTABLE reduction - more efficient because we use same object while accumulating
+
+        //---------------------------------------------------------------------------------------------------
 
         //describing of
         //<R> R collect(Supplier<R> supplier, BiConsumer<R, ? super T> accumulator, BiConsumer<R, R> combiner);
-        //combiner - it is responsible for taking two data collections and merging them.
-        //This is useful when we are processing in parallel
-        //in StringBuilder it suitable only when we ===!!!=== don't care about letters order ===!!!===
+        //This is a really useful method, because it lets us get data out of streams and into another form.
+
+        //first argument - supplier, in which we will collect data
+        //second argument - biconsumer, which will append/add the data to the supplier
+        //third argument - biconsumer, for parallel. merging two(???) "data collection" into supplier
+
+        //for SB its OK only if we don't care about letter order
         Stream<String> wolfStream = Stream.of("w", "o", "l", "f");
-        StringBuilder collect = wolfStream.collect(StringBuilder::new, StringBuilder::append, StringBuilder::append);
-        System.out.println("StringBuilder:" + collect.toString());
+        StringBuilder stringBuilder = wolfStream.collect(StringBuilder::new, StringBuilder::append, StringBuilder::append);
+        System.out.println(stringBuilder.toString());
 
-        Stream<String> wolfStreamForTree = Stream.of("w", "o", "l", "f");
-//        TreeSet<Object> objectTreeSet = wolfStreamForTree.collect(TreeSet::new, TreeSet::add, TreeSet::add);
+        Stream<String> wolfStream1 = Stream.of("w", "o", "l", "f");
+        //sorted
+        TreeSet<Object> treeSet = wolfStream1.collect(TreeSet::new, TreeSet::add, TreeSet::addAll);
+        System.out.println(treeSet);
 
-        //The combiner adds all
-        //of the elements of one TreeSet to another in case the operations were done in parallel and
-        //need to be merged.
-        TreeSet<Object> objectTreeSet = wolfStreamForTree.collect(TreeSet::new, TreeSet::add, TreeSet::addAll);
-        System.out.println("objectTreeSet:" + objectTreeSet);
+        //---------------------------------------------------------------------------------------------------
 
-        //-----------------------------------------------------------------------------------------------------------------
         //describing of
-        //<R, A> R collect(Collector<? super T, A, R> collector);
-        //predefined collectors
+        //<R,A> R collect(Collector<? super T, A,R> collector)
+        //provide a collector, which will do all the work into mention data structure
 
-        Stream<String> wolfStreamForSimpleCollector = Stream.of("w", "o", "l", "f");
-        TreeSet<String> treeSetSimpleCollector = wolfStreamForSimpleCollector.collect(Collectors.toCollection(TreeSet::new));
-        System.out.println("treeSetSimpleCollector:" + treeSetSimpleCollector);
+        Stream<String> wolfStream2 = Stream.of("w", "o", "l", "f");
+        //no sort
+        Set<String> stringSet = wolfStream2.collect(Collectors.toSet());
+        System.out.println(stringSet);
 
-        Stream<String> wolfStreamForSimpleCollector1 = Stream.of("w", "o", "l", "f");
-        Set<String> toSetSimpleCollector1 = wolfStreamForSimpleCollector1.collect(Collectors.toSet());
-        System.out.println("toSetSimpleCollector1:" + toSetSimpleCollector1);
+        Stream<String> wolfStream3 = Stream.of("w", "o", "l", "f");
+        //sorted
+        TreeSet<String> stringTreeSet = wolfStream3.collect(Collectors.toCollection(TreeSet::new));
+        System.out.println(stringTreeSet);
 
-
+        //---------------------------------------------------------------------------------------------------
     }
 
     //doesn't work with infinite streams
