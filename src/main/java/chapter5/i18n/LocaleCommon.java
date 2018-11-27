@@ -4,6 +4,14 @@ import java.util.Locale;
 
 public class LocaleCommon {
     public static void main(String[] args) {
+        System.out.println(Locale.getDefault());
+        //set default Locale for current program start only
+        Locale.setDefault(new Locale("fr"));
+        System.out.println(Locale.getDefault());
+
+    }
+
+    private static void createLocaleExample() {
         Locale locale = Locale.getDefault();
         //it may be lowercase language only(fr) OR lowercase language + underscore + uppercase country(en_US)
         System.out.println(locale);
@@ -21,5 +29,12 @@ public class LocaleCommon {
         Locale locale2 = new Locale("aa", "AA");
         System.out.println(locale2);
 
+        //Builder change case to appropriate and locate region after language
+        //en_US
+        Locale locale3 = new Locale.Builder()
+                .setRegion("us")
+                .setLanguage("EN")
+                .build();
+        System.out.println(locale3);
     }
 }
