@@ -6,8 +6,7 @@ import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.time.temporal.ChronoUnit;
 
-import static java.time.temporal.ChronoUnit.HOURS;
-import static java.time.temporal.ChronoUnit.MINUTES;
+import static java.time.temporal.ChronoUnit.*;
 
 public class DurationCommon {
 
@@ -15,7 +14,13 @@ public class DurationCommon {
 
     public static void main(String[] args) {
 
+    }
 
+    private static void unsupportedMixesExample() {
+        LocalDate localDate = LocalDate.of(2020, 1, 1);
+        Duration duration = Duration.of(1, DAYS);
+        localDate = localDate.plus(duration);
+        System.out.println(localDate);
     }
 
     private static void durationLimitationsEample() {

@@ -8,4 +8,7 @@ public class Common {
     //"full"class->"full"props->"only lang"class->"only lang"props->
     //"full default"class->"full default"props->"only lang default"class->"only lang default"props->
     //"only name"class->"only name"props->exception
+
+    //Once a matching resource bundle is found, Java
+    //only looks in the hierarchy of that resource bundle to fnd keys.
 }
