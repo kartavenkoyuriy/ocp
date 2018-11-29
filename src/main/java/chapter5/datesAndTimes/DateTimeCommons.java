@@ -77,7 +77,7 @@ public class DateTimeCommons {
         System.out.println(time3);
     }
 
-    private static void localDateEamole() {
+    private static void localDateExample2() {
         //constructors are private
 //        LocalTime localTime = new LocalTime();
 
@@ -95,7 +95,7 @@ public class DateTimeCommons {
         System.out.println(b);
     }
 
-    private static void commonCreateEample() {
+    private static void commonCreateExample() {
         System.out.println(LocalDate.now());
         System.out.println(LocalTime.now());
         System.out.println(LocalDateTime.now());

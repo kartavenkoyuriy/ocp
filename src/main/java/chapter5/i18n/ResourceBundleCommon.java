@@ -7,8 +7,20 @@ import java.util.ResourceBundle;
 
 public class ResourceBundleCommon {
     public static void main(String[] args) {
-        bundlePlaceHolderExample();
 
+    }
+
+    private static void onceChosenBundleRuleExample() {
+        Locale.setDefault(new Locale("en", "US"));
+
+        Locale fr = new Locale("fr");
+
+        ResourceBundle bundle = ResourceBundle.getBundle("Zoo", fr);
+
+        //After the bundle is chosen, only properties from hierarchy are available
+        //here: go for 'age' to Zoo(even as Zoo_en is default)
+        System.out.println(bundle.getString("name"));
+        System.out.println(bundle.getString("age"));
     }
 
     private static void bundlePlaceHolderExample() {
@@ -36,7 +48,7 @@ public class ResourceBundleCommon {
         System.out.println(properties.getProperty("notAProperty", "123"));
     }
 
-    private static void bundleStreamEample() {
+    private static void bundleStreamExample() {
         Locale us = new Locale("en", "US");
         Locale fr = new Locale("fr", "FR");
 
@@ -56,9 +68,14 @@ public class ResourceBundleCommon {
         Locale us = new Locale("en", "US");
         Locale fr = new Locale("fr", "FR");
 
-        printProperties(us);
-        System.out.println();
-        printProperties(fr);
+        ResourceBundle bundle = ResourceBundle.getBundle("Zoo", fr);
+        System.out.println(bundle.getString("hello"));
+        System.out.println(bundle.getString("open"));
+
+
+//        printProperties(us);
+//        System.out.println();
+//        printProperties(fr);
     }
 
     private static void printProperties(Locale locale) {
