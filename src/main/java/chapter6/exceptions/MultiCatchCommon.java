@@ -1,16 +1,52 @@
 package chapter6.exceptions;
 
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.sql.SQLException;
 import java.time.LocalDate;
 import java.time.format.DateTimeParseException;
+import java.util.InputMismatchException;
+import java.util.MissingResourceException;
 
 public class MultiCatchCommon {
 
     public static void main(String[] args) {
 
+    }
+
+    private static void commonMistakesExamples() {
+        //mistakes:
+        //1. second catch - two variables
+        //2. change place Exception with IOException
+        //3. two times FileNotFoundException
+        //4. SQLException never potentially thrown
+//        try {
+//            mightThrow();
+//        } catch (FileNotFoundException | IllegalStateException e) {
+//        } catch (InputMismatchException e | MissingResourceException e) {
+//        } catch (SQLException | ArrayIndexOutOfBoundsException e) {
+//        } catch (FileNotFoundException | IllegalArgumentException e) {
+//        } catch (Exception e) {
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
+
+        try {
+            mightThrow();
+        } catch (FileNotFoundException | IllegalStateException e) {
+        } catch (InputMismatchException | MissingResourceException e) {
+        } catch (ArrayIndexOutOfBoundsException e) {
+        } catch (IllegalArgumentException e) {
+        } catch (IOException e) {
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    private static void mightThrow() throws DateTimeParseException, IOException{
     }
 
     private static void reassignMulticatchExample() {
