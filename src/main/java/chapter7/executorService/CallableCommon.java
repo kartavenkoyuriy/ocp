@@ -35,7 +35,8 @@ public class CallableCommon {
                 executorService.shutdown();
             }
         }
-        executorService.awaitTermination(1, TimeUnit.SECONDS);
+        //after shutdown - wait some time until executor terminates
+        executorService.awaitTermination(1, TimeUnit.NANOSECONDS);
         if(executorService.isTerminated()){
             System.out.println("terminated");
         } else {

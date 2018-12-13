@@ -31,7 +31,7 @@ public class ThreadsCommon {
     //interviewing for a Java development position to be asked to explain the difference
     //between extending the Thread class and implementing Runnable. The following are some
     //reasons to prefer one method over the other in Java:
-    //■ If you need to defne your own Thread rules upon which multiple tasks will rely, such
+    //■ If you need to define your own Thread rules upon which multiple tasks will rely, such
     //as a priority Thread, extending Thread may be preferable.
     //■ Since Java doesn't support multiple inheritance, extending Thread does not allow you to
     //extend any other class, whereas implementing Runnable lets you extend another class.
