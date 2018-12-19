@@ -3,6 +3,7 @@ package chapter7.concurrentParallelStreams;
 import java.util.Arrays;
 
 public class ParallelReductionsCommon {
+
     public static void main(String[] args) {
 
         unorderedExample();
@@ -18,9 +19,9 @@ public class ParallelReductionsCommon {
     //However, most stream pipelines, such as the "sum of weight of blocks" example above,
     //still parallelize efficiently even under ordering constraints.
     private static void unorderedExample() {
-        Arrays.asList(1,2,3,4,5,6,7,8,9).stream().unordered();
+        Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9).stream().unordered();
         for (int i = 0; i < 10; i++) {
-            Arrays.asList(1,2,3,4,5,6,7,8,9).stream().unordered().parallel().skip(2).forEach(System.out::print);
+            Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9).stream().unordered().parallel().skip(2).forEach(System.out::print);
             System.out.println();
         }
     }
@@ -30,17 +31,17 @@ public class ParallelReductionsCommon {
     //as well, order is provided, and result is the same
     private static void orderedOperationExample() {
         //this will always print 1
-        System.out.println(Arrays.asList(1,2,3,4,5,6,7,8,9).stream().skip(2).limit(4).findFirst().get());
+        System.out.println(Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9).stream().skip(2).limit(4).findFirst().get());
 
         //because of parallel stream here the answer is unpredictable
-        System.out.println(Arrays.asList(1,2,3,4,5,6,7,8,9).parallelStream().skip(2).limit(4).findFirst().get());
+        System.out.println(Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9).parallelStream().skip(2).limit(4).findFirst().get());
     }
 
     private static void parallelReductionDifference() {
         //this will always print 1
-        System.out.println(Arrays.asList(1,2,3,4,5,6).stream().findAny().get());
+        System.out.println(Arrays.asList(1, 2, 3, 4, 5, 6).stream().findAny().get());
 
         //because of parallel stream here the answer is unpredictable
-        System.out.println(Arrays.asList(1,2,3,4,5,6).parallelStream().findAny().get());
+        System.out.println(Arrays.asList(1, 2, 3, 4, 5, 6).parallelStream().findAny().get());
     }
 }

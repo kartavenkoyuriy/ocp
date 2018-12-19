@@ -16,8 +16,7 @@ public class StreamsTerminal {
      */
     public static void main(String[] args) {
 
-//        Stream<String> monkeyStream = Stream.of("monkey", "gorilla", "bonobo", "ape", "2");
-        countExample();
+reduceReduceReduceExample();
     }
 
     private static void collectCollectExample() {
@@ -111,22 +110,25 @@ public class StreamsTerminal {
         //another words - for differentiate empty streams and initial values
         //(Integer) Stream.empty().reduce(1, (accum, next) -> null); - Optional[1]
         //and
-        //Stream.empty().reduce(multiply).ifPresent(System.out::println); - Optional[empty]
+        //Stream.empty().reduce((a, b) -> a * b).ifPresent(System.out::println); - Optional[empty]
         BinaryOperator<Integer> multiply = (a, b) -> a * b;
 
         Stream<Integer> empty = Stream.empty();
         Stream<Integer> integerStreamOneValue = Stream.of(3);
         Stream<Integer> integerStreamManyValues = Stream.of(3, 5, 6);
 
+        System.out.println("what if BinaryOperator returns null");
+        System.out.println("start null");
         empty.reduce(multiply).ifPresent(System.out::println);
         integerStreamOneValue.reduce(multiply).ifPresent(System.out::println);
         integerStreamManyValues.reduce(multiply).ifPresent(System.out::println);
+        System.out.println("end null");
 
         //what if BinaryOperator returns null - not interesting
 //        BinaryOperator<Integer> multiplyNull = (a, b) -> null;
-//        empty.reduce(multiplyNull).ifPresent(System.out::println);
-//        integerStreamOneValue.reduce(multiplyNull).ifPresent(System.out::println);
-//        integerStreamManyValues.reduce(multiplyNull).ifPresent(System.out::println);
+//        empty.reduce(multiplyNull).ifPresent(System.out::println); - no output
+//        integerStreamOneValue.reduce(multiplyNull).ifPresent(System.out::println); - 3
+//        integerStreamManyValues.reduce(multiplyNull).ifPresent(System.out::println); - 90
 
         //---------------------------------------------------------------------------------------------------
 
@@ -135,7 +137,7 @@ public class StreamsTerminal {
         //used when we are processing collections in parallel. It
         //allows Java to create intermediate reductions and then combine them at the end
 
-        Stream<Integer> integerStreamForParallel = Stream.of(1, 2, 3, 4, 5);
+        Stream<Integer> integerStreamForParallel = Stream.of(1, 2, 3, 4, 5).parallel();
         Integer parallelReduceResult = integerStreamForParallel.reduce(1, multiply, multiply);
         System.out.println("parallelReduceResult:" + parallelReduceResult);
     }
