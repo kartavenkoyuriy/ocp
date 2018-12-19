@@ -5,11 +5,17 @@ import java.util.Arrays;
 public class ParallelReduceOrder {
 
     public static void main(String[] args) {
-//        System.out.println(Arrays.asList("w", "o", "l", "f")
-        System.out.println(Arrays.asList("w", "o", "l", "f", "a", "s", "d", "f", "g", "h")
+
+
+    }
+
+    private static void notTrulyIdentityParallelExample() {
+        //As part of the parallel process, the identity is applied to
+        //multiple elements in the stream, resulting in very unexpected data.
+        //prints 'XwXoXlXf' instead of predictable 'Xwolf'
+        System.out.println(Arrays.asList("w", "o", "l", "f")
                 .parallelStream()
                 .reduce("X", String::concat));
-
     }
 
     //a=1,b=2,c=3;
