@@ -6,4 +6,11 @@ public class ForkJoinCommon {
 
     }
 
+    private static int recursionFactorialExample(int i){
+        if (i <= 1){
+            return 1;
+        }
+        return i * recursionFactorialExample(i - 1);
+    }
+
 }
