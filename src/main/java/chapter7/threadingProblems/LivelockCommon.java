@@ -62,7 +62,7 @@ public class LivelockCommon {
     //a criminal kidnaps a hostage and he asks for ransom in order to release the hostage.
     //A police agrees to give the criminal the money he wants once the hostage is released.
     //The criminal releases the hostage only when he gets the money.
-    //Both are waiting for each other to act first, hence livelock.
+    //Both are waiting(while ping each other) for each other to act first, hence livelock.
     private static void simpleLivelockExample() {
         Police police = new Police();
         Criminal criminal = new Criminal();
