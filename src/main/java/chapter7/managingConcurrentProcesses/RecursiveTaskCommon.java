@@ -80,7 +80,7 @@ public class RecursiveTaskCommon extends RecursiveTask<Double> {
     }
 
     //In this example, the current thread calls join(), causing it to wait for the [start,middle]
-    //subtask to fnish before starting on the [middle,end] subtask. In this manner, the results are
+    //subtask to finish before starting on the [middle,end] subtask. In this manner, the results are
     //actually performed in a single-threaded manner.
     private Double singleThreadedPartExample() {
         int middle = start + ((end - start) / 2);
