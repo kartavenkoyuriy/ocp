@@ -23,7 +23,6 @@ public class ParallelStreamStatefulOperations {
                 .forEachOrdered(i -> System.out.print(i + " "));
 
         System.out.println();
-        //because of stateful lambda expression in parallel stream, result in 'integers' can't be predicted
         System.out.println(integers);
     }
 }

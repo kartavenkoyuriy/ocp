@@ -45,7 +45,7 @@ public class ParallelCollectExample {
 
     private static void collectExtendedParallelExample() {
         //ConcurrentSkipListSet means 'sorted'
-        //should use a concurrent collection to make sure no ConcurrentModificationExample will be thrown
+        //should use a concurrent collection to make sure no ConcurrentModificationException will be thrown
         SortedSet<String> collect = Stream.of("w", "o", "l", "f").parallel()
                 .collect(ConcurrentSkipListSet::new, ConcurrentSkipListSet::add, ConcurrentSkipListSet::addAll);
         System.out.println(collect);

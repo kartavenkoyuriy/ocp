@@ -4,14 +4,17 @@ import java.util.concurrent.*;
 
 public class SchedulingCommon {
     public static void main(String[] args) {
+    }
+
+    private static void scheduledShutdownExample() {
         ScheduledExecutorService scheduledExecutorService = null;
         try {
             scheduledExecutorService = Executors.newSingleThreadScheduledExecutor();
 
             //initial delay and delay from start to start
-            scheduledExecutorService.scheduleAtFixedRate(() -> System.out.println("fixed runnable rate 2 sec"), 0, 2,TimeUnit.SECONDS);
+            scheduledExecutorService.scheduleAtFixedRate(() -> System.out.println("fixed runnable rate 5 sec"), 0, 5, TimeUnit.SECONDS);
             //initial delay and delay from end of previous to start next
-            scheduledExecutorService.scheduleWithFixedDelay(() -> System.out.println("fixed runnable delay 5 sec"), 0, 5,TimeUnit.SECONDS);
+            scheduledExecutorService.scheduleWithFixedDelay(() -> System.out.println("fixed runnable delay 2 sec"), 0, 2,TimeUnit.SECONDS);
 
 
         } finally {

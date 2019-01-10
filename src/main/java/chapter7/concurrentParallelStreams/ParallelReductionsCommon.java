@@ -9,7 +9,6 @@ public class ParallelReductionsCommon {
         unorderedExample();
     }
 
-    //all streams are ordered by default
     //unordered() on serial streams has no effect
     //unordered() on parallel streams tells JVM that order doesn't matter
     //For parallel streams, relaxing the ordering constraint can sometimes enable more efficient execution
@@ -26,7 +25,7 @@ public class ParallelReductionsCommon {
         }
     }
 
-    //skip(), limit(), findFirst() and others - ordered operations(all streams by default),
+    //skip(), limit(), findFirst() and others(?) - ordered operations(all streams by default),
     //parallel streams works slowly due to synchronization-like
     //as well, order is provided, and result is the same
     private static void orderedOperationExample() {
