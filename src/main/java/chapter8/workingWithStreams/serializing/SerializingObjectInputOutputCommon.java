@@ -4,7 +4,7 @@ import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class SerializingCommon {
+public class SerializingObjectInputOutputCommon {
     public static void main(String[] args) throws IOException, ClassNotFoundException {
         List<SpecialAnimal> animals = new ArrayList<>();
         animals.add(new SpecialAnimal("tiger", 1, 'r'));
@@ -74,7 +74,6 @@ public class SerializingCommon {
     }
 
     private static void writeSpecialAnimalsToFile(List<SpecialAnimal> specialAnimals, File destination) throws IOException {
-
         try (ObjectOutputStream os = new ObjectOutputStream(new BufferedOutputStream(new FileOutputStream(destination)))) {
             for (SpecialAnimal specialAnimal : specialAnimals) {
                 os.writeObject(specialAnimal);
