@@ -2,8 +2,11 @@ package chapter9.introducingNio;
 
 import com.sun.scenario.effect.impl.sw.sse.SSEBlend_SRC_OUTPeer;
 
+import java.io.File;
 import java.net.URI;
 import java.net.URISyntaxException;
+import java.nio.file.FileSystem;
+import java.nio.file.FileSystems;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.spi.FileSystemProvider;
@@ -57,5 +60,26 @@ public class CreatingPathCommon {
         System.out.println(pathExistSeparate.normalize().toString());
 
         //Path pathDoesntExist = Paths.get("D:\\install\\file_doesnt_exist.txt");
+    }
+
+    //Path.get()
+    //invokes (so, same as)
+    //FileSystems.getDefault().getPath()
+    private static void fileSystemGetPath() throws URISyntaxException {
+        Path path1 = FileSystems.getDefault().getPath("\\install\\file_exist.txt");
+        Path path2 = FileSystems.getDefault().getPath("D:\\install\\file_exist.txt");
+        Path path3 = FileSystems.getDefault().getPath("D:" + "install" + "file_exist.txt");
+
+        //connecting to other File System
+        FileSystem otherFileSystem = FileSystems.getFileSystem(new URI("http://www.selikoff.net"));
+        Path path = otherFileSystem.getPath("duck.txt");
+    }
+
+    private static void filePathConverting(){
+        Path path1 = Paths.get("D:\\install\\file_exist.txt");
+        File file1 = path1.toFile();
+
+        File file2 = new File("D:\\install\\file_exist.txt");
+        Path path2 = file2.toPath();
     }
 }
