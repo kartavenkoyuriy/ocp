@@ -30,6 +30,10 @@ public class ViewAccessCommon {
     //same as previous classes but + View
     //i.e. PosixFileAttributesView(extends BasicFileAttributesView)
     public static void main(String[] args) {
+        updatingFileAttributes();
+    }
+
+    private static void updatingFileAttributes() {
         //Files.getFileAttributeView(Path,Class<V>) returns FileAttributeView - method, which returns a view object that
         //we can use to update the file system–dependent attributes
 
