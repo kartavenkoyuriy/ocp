@@ -1,7 +1,7 @@
 package chapter8.workingWithStreams;
 
-import chapter8.workingWithStreams.serializing.Animal;
 import chapter8.workingWithStreams.serializing.SpecialAnimal;
+
 import java.io.FileNotFoundException;
 import java.io.PrintWriter;
 
