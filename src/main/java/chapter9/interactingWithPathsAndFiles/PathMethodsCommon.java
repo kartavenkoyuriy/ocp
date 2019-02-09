@@ -32,6 +32,11 @@ public class PathMethodsCommon {
     //second path outputs true on Windows but false on a Linux or Mac-based system, as it is
     //missing the root forward slash, /.
     public static void main(String[] args) {
+        toRealPathExample();
+    }
+
+    //TODO: revise method
+    private static void toRealPathExample() {
         try {
             Path pathFile = Paths.get("D:\\install\\1\\file_exist.txt");
             Path pathCuttedFile = Paths.get("D:\\install\\..\\file_exist.txt");

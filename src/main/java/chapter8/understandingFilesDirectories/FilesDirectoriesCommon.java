@@ -58,6 +58,7 @@ public class FilesDirectoriesCommon {
         new File("D:\\005").delete();
     }
 
+    //it's just MOVE
     private static void renameToExample() throws IOException {
 // File (or directory) with old name
         File file = new File("D:\\123.txt");
