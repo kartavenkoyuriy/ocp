@@ -82,4 +82,9 @@ public class CreatingPathCommon {
         File file2 = new File("D:\\install\\file_exist.txt");
         Path path2 = file2.toPath();
     }
+
+    private static void cleanSlashesExample(){
+        Path path2 = Paths.get("E:\\animals\\tigers\\");
+        System.out.println(path2);
+    }
 }
