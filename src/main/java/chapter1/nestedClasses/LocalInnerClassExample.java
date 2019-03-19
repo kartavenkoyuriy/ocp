@@ -12,6 +12,10 @@ public class LocalInnerClassExample {
 }
 
 class Outer{
+    //inner interface can be static
+    static interface Asd{}
+
+
     private int length = 5;
     public void calculate(){
 
