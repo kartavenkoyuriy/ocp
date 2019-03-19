@@ -1,10 +1,26 @@
 package chapter3.collections.set;
 
 import java.util.NavigableSet;
+import java.util.Set;
 import java.util.TreeSet;
 
 public class NavigableSetSpecial {
     public static void main(String[] args) {
+        navigableSetExample();
+    }
+
+    private static void treeSetOrder() {
+        Set<String> stringOrder = new TreeSet<>();
+        stringOrder.add("One");
+        stringOrder.add("ONE");
+        stringOrder.add("one");
+        stringOrder.add("On");
+        stringOrder.add("1");
+
+        System.out.println(stringOrder);
+    }
+
+    private static void navigableSetExample() {
         NavigableSet<Integer> integers = new TreeSet<>();
         for (int i = 1; i <= 20; i++) {
             integers.add(i);
@@ -39,7 +55,5 @@ public class NavigableSetSpecial {
         System.out.println(integers.floor(0));
         System.out.println(integers.ceiling(0));
         System.out.println(integers.higher(0));
-
-
     }
 }
