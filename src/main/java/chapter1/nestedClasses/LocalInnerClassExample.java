@@ -22,6 +22,11 @@ class Outer{
         final int width = 20;
         //They do not have an access specifier
 
+        String a = "";
+
+        //effectively final. uncomment for use inside inner class (no matter before or after)
+//        a = "f";
+
         //They cannot be declared staticBlock and cannot declare staticBlock fields or methods.
         class Inner{
             public void multiply(){
@@ -29,24 +34,30 @@ class Outer{
                 //java 1.7 and earlier - need to explicit mention "final" modifier. from 1.8 - no(effectively final)
 
                 //They have access to all fields and methods of the enclosing class.
-                System.out.println(length * width);
+                System.out.println(a + length * width);
+
             }
         }
+        //effectively final. uncomment for use inside inner class (no matter before or after)
+//        a = "f";
+
         Inner inner = new Inner();
         inner.multiply();
 
 //        return new multip;
     }
 
-    public void newInner(){
+    public void newInner() {
         //can't use before initializing
         //        new Inner()
-
+        String a = "";
         //class with same name in another method
-        class Inner{
+        class Inner {
             public int a = 10;
+
         }
         new Inner();
+//        a= "d";
     }
 
     public static void main(String[] args) {

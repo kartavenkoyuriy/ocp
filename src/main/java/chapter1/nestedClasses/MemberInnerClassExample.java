@@ -53,6 +53,8 @@ public class MemberInnerClassExample {
 
         System.out.println("---");
 
+        new A().new B().new C();
+
         A a = new A();
         A.B b = a.new B();
         A.B.C c = b.new C();
