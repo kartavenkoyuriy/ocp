@@ -15,8 +15,7 @@ public class StreamsTerminal {
     into a single primitive or Object. For example, you might have an int or a Collection.
      */
     public static void main(String[] args) {
-
-reduceReduceReduceExample();
+        //reduceReduceReduceExample();
     }
 
     private static void collectCollectExample() {

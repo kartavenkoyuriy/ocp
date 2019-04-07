@@ -7,19 +7,32 @@ public class PeriodsCommon {
     //Period for year, month, week(to day), day
 
     public static void main(String[] args) {
-periodPrintingExample();
+        System.out.println(Period.of(1,2,3));
 
+        Instant i = Instant.now();
+
+        Period p1 = Period.ofDays(1);
+        Duration d1 = Duration.ofDays(1);
+
+        LocalDate localDate = LocalDate.of(2015, 1, 1);
+
+        localDate.plus(p1);
+        localDate.plus(d1);
     }
 
     private static void periodLimitationExample() {
         LocalDate localDate = LocalDate.of(2015, 1, 1);
+
         LocalTime localTime = LocalTime.of(14, 12);
         LocalDateTime localDateTime = LocalDateTime.of(localDate, localTime);
 
         Period period = Period.ofMonths(1);
+        Period p1 = Period.ofDays(1);
+        Duration d1 = Duration.ofDays(1);
 
         localDateTime = localDateTime.plus(period);
         localDate = localDate.plus(period);
+        localDate = localDate.plus(d1);
         //Period can't be added to a LocalTime
 //        localTime = localTime.plus(period);
     }

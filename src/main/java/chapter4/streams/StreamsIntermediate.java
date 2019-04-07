@@ -126,6 +126,10 @@ public class StreamsIntermediate {
         monkeyInfiniteStream
                 .distinct()
                 .forEach(System.out::println);
+
+        //hangs with 1,0
+        Stream.iterate(1, (n) -> (n + 1) % 2).distinct().forEach(System.out::println);
+
     }
 
     private static void filterExample() {

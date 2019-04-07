@@ -2,6 +2,7 @@ package chapter4.primitiveStreams;
 
 
 import java.util.OptionalDouble;
+import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
 public class CommonPrimitiveStreams {
@@ -19,6 +20,8 @@ public class CommonPrimitiveStreams {
         Stream<Integer> integerStream2 = Stream.of(3, 5, 6);
         OptionalDouble average = integerStream2.mapToInt(x -> x).average();
         average.ifPresent(System.out::println);
+
+        IntStream intStream;
 
     }
 }

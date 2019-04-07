@@ -5,15 +5,24 @@ import java.util.Set;
 
 public class DateTimeCommons {
     public static void main(String[] args) {
+
+    }
+
+    private static void privateConstructors() {
         //constructors are private
 //        LocalTime localTime = new LocalTime();
+    }
 
+    private static void wrongDayInput() {
         //DateTimeException is thrown
-//        LocalDate localDate = LocalDate.of(2015, Month.MAY, 35);
-//        System.out.println(localDate);
+        LocalDate localDate = LocalDate.of(2015, Month.MAY, 35);
+        System.out.println(localDate);
+    }
 
-
-
+    private static void plusMonthsFebruary() {
+        LocalDate localDate = LocalDate.of(2014, 1, 31);
+        localDate = localDate.plusMonths(1);
+        System.out.println(localDate);
     }
 
     private static void zonedDateTimeExample() {
