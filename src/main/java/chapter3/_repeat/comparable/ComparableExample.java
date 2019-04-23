@@ -1,4 +1,4 @@
-package chapter3.repeat.comparable;
+package chapter3._repeat.comparable;
 
 import java.util.ArrayList;
 import java.util.Collections;

@@ -1,4 +1,4 @@
-package chapter3.repeat.searchAndSort;
+package chapter3._repeat.searchAndSort;
 
 import java.util.*;
 
