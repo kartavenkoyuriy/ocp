@@ -43,9 +43,10 @@ public class ExecutorServiceCommon {
             });
         } finally {
             if (service != null) {
-                //shutdownNow() is only ATTEMPT to to stop all running tasks, attempt may be ignored
+                //shutdownNow() is only ATTEMPT to stop all running tasks, attempt may be ignored
                 //returns a List<Runnable> of tasks that were submitted but never started
                 final List<Runnable> runnables = service.shutdownNow();
+                System.out.println("runnables:" + runnables.size());
             }
         }
     }

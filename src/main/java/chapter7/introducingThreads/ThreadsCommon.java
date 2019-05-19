@@ -18,7 +18,7 @@ class InventoryThread extends Thread {
 
 public class ThreadsCommon {
 
-    //a Thread instance will execute can be done two ways in Java:
+    //a Thread instance that will execute can be done two ways in Java:
     //■ Provide a Runnable object or lambda expression to the Thread constructor.
     //■ Create a class that extends Thread and overrides the run() method
 
@@ -73,6 +73,7 @@ public class ThreadsCommon {
         new Thread(() -> {
             return;
         }).start();
+
         new Thread(() -> {
         }).start();
     }

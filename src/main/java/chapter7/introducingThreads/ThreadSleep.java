@@ -8,7 +8,8 @@ public class ThreadSleep {
 
     }
 
-    //While polling does prevent the CPU from being overwhelmed with a potentially infnite
+    //polling - intermittently checking data at some fixed interval.
+    //While polling does prevent the CPU from being overwhelmed with a potentially infinite
     //loop, it does not guarantee when the loop will terminate.
     private static void pollingSleepExample() throws InterruptedException {
         new Thread(() -> {
