@@ -1,4 +1,4 @@
-package chapter7.examRepeating01;
+package chapter7._repeat.examRepeating01;
 
 import java.util.concurrent.BrokenBarrierException;
 import java.util.concurrent.CyclicBarrier;

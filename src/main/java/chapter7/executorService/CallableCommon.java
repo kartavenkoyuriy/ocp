@@ -31,13 +31,13 @@ public class CallableCommon {
             //...add tasks
 
         } finally {
-            if(executorService != null){
+            if (executorService != null) {
                 executorService.shutdown();
             }
         }
         //after shutdown - wait some time until executor terminates
         executorService.awaitTermination(1, TimeUnit.NANOSECONDS);
-        if(executorService.isTerminated()){
+        if (executorService.isTerminated()) {
             System.out.println("terminated");
         } else {
             System.out.println("not terminated");
@@ -50,12 +50,15 @@ public class CallableCommon {
             executorService = Executors.newSingleThreadExecutor();
 
             //because of exist return type compiler treats this as Callable and exception may be thrown
-            executorService.submit(() -> {Thread.sleep(1000); return null;});
+            executorService.submit(() -> {
+                Thread.sleep(1000);
+                return null;
+            });
 
-            //because of no return type compiler treats this as Runnable and provide a compile error
-            //executorService.submit(() -> {Thread.sleep(1000);});
+//            because of no return type compiler treats this as Runnable and provide a compile error
+//            executorService.submit(() -> {Thread.sleep(1000);});
         } finally {
-            if(executorService != null){
+            if (executorService != null) {
                 executorService.shutdown();
             }
         }
