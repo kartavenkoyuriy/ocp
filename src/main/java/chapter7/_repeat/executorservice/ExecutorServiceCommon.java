@@ -7,7 +7,7 @@ import java.util.concurrent.Executors;
 public class ExecutorServiceCommon {
 
     public static void main(String[] args) {
-
+        System.out.println(Runtime.getRuntime().availableProcessors());
     }
 
     private static void shotdownNowStopped() {
