@@ -1,9 +1,16 @@
 package chapter6.exceptions;
 
+import java.math.BigInteger;
+
 public class CustomExceptionCommon extends Exception {
 
-    public static void main(String[] args) /*throws CustomExceptionCommon*/ {
-//        throw new CustomExceptionCommon();
+    public static void main(String[] args){
+        BigInteger bigInteger = new BigInteger("1234567123456712345671234567");
+        System.out.println(bigInteger);
+    }
+
+    private static void customExceptionExample() {
+        //        throw new CustomExceptionCommon();
 //        throw new CustomExceptionCommon(new RuntimeException());
 
         try {
