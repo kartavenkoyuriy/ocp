@@ -11,7 +11,7 @@ public class ConcurrentCollectionsCommon {
 
     public static void main(String[] args) throws InterruptedException {
 
-
+        concurrentModificationException();
     }
 
     private static void concurrentModificationException() {
@@ -21,7 +21,7 @@ public class ConcurrentCollectionsCommon {
         Map<String, Object> concurrentMap = new ConcurrentHashMap<>();
 
         map.put("1", 1);
-//        map.put("2", 2);
+        map.put("2", 2);
         //for two key-value pairs it will be ConcurrentModificationException
         //because keySet iterator is not updated properly
         for (String s : map.keySet()) {
